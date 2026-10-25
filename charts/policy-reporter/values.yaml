@@ -1822,18 +1822,18 @@ plugin:
       runAsUser: 1234
       runAsGroup: 1234
 
-    # -- Deployment livenessProbe for policy-reporter-trivy-plugin
+    # -- Deployment livenessProbe for policy-reporter-trivy-plugin (requires Trivy Plugin health endpoints)
     livenessProbe:
       timeoutSeconds: 3
       httpGet:
-        path: /vulnr/v1/policies
+        path: /healthz
         port: http
 
-    # -- Deployment readinessProbe for policy-reporter-trivy-plugin
+    # -- Deployment readinessProbe for policy-reporter-trivy-plugin (requires Trivy Plugin health endpoints)
     readinessProbe:
       timeoutSeconds: 3
       httpGet:
-        path: /vulnr/v1/policies
+        path: /ready
         port: http
 
     # -- Allow additional env variables to be added
