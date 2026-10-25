@@ -630,8 +630,8 @@ Open `http://localhost:8082/` in your browser.
 | plugin.trivy.updateStrategy | object | `{}` | Deployment update strategy. Ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy |
 | plugin.trivy.revisionHistoryLimit | int | `10` | The number of revisions to keep |
 | plugin.trivy.podSecurityContext | object | `{"runAsGroup":1234,"runAsUser":1234}` | Security context for the pod |
-| plugin.trivy.livenessProbe | object | `{"httpGet":{"path":"/vulnr/v1/policies","port":"http"},"timeoutSeconds":3}` | Deployment livenessProbe for policy-reporter-trivy-plugin |
-| plugin.trivy.readinessProbe | object | `{"httpGet":{"path":"/vulnr/v1/policies","port":"http"},"timeoutSeconds":3}` | Deployment readinessProbe for policy-reporter-trivy-plugin |
+| plugin.trivy.livenessProbe | object | `{"httpGet":{"path":"/healthz","port":"http"},"timeoutSeconds":3}` | Deployment livenessProbe for policy-reporter-trivy-plugin |
+| plugin.trivy.readinessProbe | object | `{"httpGet":{"path":"/ready","port":"http"},"timeoutSeconds":3}` | Deployment readinessProbe for policy-reporter-trivy-plugin |
 | plugin.trivy.envVars | list | `[]` | Allow additional env variables to be added |
 | plugin.trivy.rbac.enabled | bool | `true` | Create RBAC resources |
 | plugin.trivy.securityContext.runAsUser | int | `1234` |  |
